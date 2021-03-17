@@ -1,0 +1,64 @@
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
+<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
+<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * Delete the template below * * * * * * * * * * -->
+<!-- * * * * * * * to get started with your project! * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+
+
+   
+<h1>Application</h1>
+        <form [formGroup]='user' (ngSubmit)="onSubmit()">
+          <div class="first">
+                  <label class="lable">First Name : 
+                    <input class="in"type="text" formControlName = 'firstname'>
+                  </label>
+                  
+                  
+                  <label class="lable">Last Name : 
+                    <input class="in"type="text" formControlName = 'lastname'>
+                  </label>
+                                               
+                  <label class="lable">Email Id : 
+                    <input class="in"type="text" formControlName = 'email'>
+                  </label>
+      </div>
+        
+          <div class="third"formArrayName='education'>
+                    <h2>Education</h2>
+                    
+                    <div class="mob"*ngFor="let mob of mobiles.controls; let i =index;">
+                      <label class="lable">Add Education:</label> 
+                        <input class="in"type="text" [formControlName] = 'i'>
+                        <button type="button" class="remove" (click)="remove(i)">Remove</button>
+                        
+                    </div>
+                    <!-- <div class="mob" *ngFor="let mob of mobiles.controls; let i = index;">
+                    
+                    </div> -->
+                    
+                    <button class="add "(click)='addbtn()' >Add</button>
+                    
+          </div>
+          
+          
+          <button type="submit" class="btn btn-primary" [disabled]='!user.valid'>Submit</button>
+
+      </form>
+     
+ 
+
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->
+<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
+<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * End of Placeholder * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+
+
+<router-outlet></router-outlet>
